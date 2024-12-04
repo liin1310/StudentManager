@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    app:startDestination="@id/studentListFragment">
+
+    <!-- Fragment danh sách sinh viên -->
+    <fragment
+        android:id="@+id/studentListFragment"
+        android:name="com.example.student_manager.StudentListFragment"
+        android:label="Danh sách sinh viên"
+        tools:layout="@layout/fragment_student_list">
+        <!-- Action chuyển đến fragment Thêm sinh viên -->
+        <action
+            android:id="@+id/action_studentListFragment_to_addStudentFragment"
+            app:destination="@id/addStudentFragment" />
+        <!-- Action chuyển đến fragment Chỉnh sửa sinh viên -->
+        <action
+            android:id="@+id/action_studentListFragment_to_editStudentFragment"
+            app:destination="@id/editStudentFragment">
+            <argument
+                android:name="position"
+                app:argType="integer" />
+            <argument
+                android:name="studentName"
+                app:argType="string" />
+            <argument
+                android:name="studentId"
+                app:argType="string" />
+        </action>
+    </fragment>
+
+    <!-- Fragment thêm sinh viên -->
+    <fragment
+        android:id="@+id/addStudentFragment"
+        android:name="com.example.student_manager.AddStudentFragment"
+        android:label="Thêm sinh viên"
+        tools:layout="@layout/fragment_add_student" />
+
+    <!-- Fragment chỉnh sửa sinh viên -->
+    <fragment
+        android:id="@+id/editStudentFragment"
+        android:name="com.example.student_manager.EditStudentFragment"
+        android:label="Chỉnh sửa sinh viên"
+        tools:layout="@layout/fragment_edit_student">
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <argument
+            android:name="studentName"
+            app:argType="string" />
+        <argument
+            android:name="studentId"
+            app:argType="string" />
+    </fragment>
+</navigation>
